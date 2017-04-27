@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	    http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean name="carRepo" class="com.makas.repository.CarRepoStubImpl" />
+
+	<!-- 1.using setter injection -->
+	<!-- <bean name="carServiceBean" class = "com.makas.services.CarServiceImpl"> 
+		<property name="carRepo" ref="carRepo"/> </bean> -->
+
+	<!-- 2.using constructor injection 
+	<bean name="carServiceBean" class="com.makas.services.CarServiceImpl">
+		<constructor-arg index="0" ref="carRepo" /> -->
+		
+	<!-- 3.Autowiring:constructor // looks for constructor that takes a CarRepo instance as param
+	<bean name="carServiceBean" class="com.makas.services.CarServiceImpl" autowire="constructor">		
+	</bean> -->
+	
+	<!-- 3.Autowiring:byName // will set carRepoInterf with a bean named carRepo
+	<bean name="carServiceBean" class="com.makas.services.CarServiceImpl" autowire="byName">		
+	</bean> -->
+	
+	<!-- 3.Autowiring:byType // will set carRepoInterf with a bean named carRepo-->
+	<bean name="carServiceBean" class="com.makas.services.CarServiceImpl" autowire="byType">		
+	</bean>
+	
+</beans>
